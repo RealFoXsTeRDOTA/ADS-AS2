@@ -1,11 +1,18 @@
 package com.group2.bst.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BinaryTree<E extends Comparable<E>> implements BinaryTreeADT<E> {
 
     private BinaryTreeNode<E> root;
     private int size;
+
+    public BinaryTree(BinaryTreeNode<E> root, int size) {
+        this.root = root;
+        this.size = size;
+    }
 
     @Override
     public BinaryTreeNode<E> getRoot() {
@@ -42,7 +49,7 @@ public class BinaryTree<E extends Comparable<E>> implements BinaryTreeADT<E> {
     }
 
     private boolean contains(BinaryTreeNode<E> root, E element) {
-        if(root == null)
+        if(root == null || root.getElement() == null)
             return false;
         return root.getElement().equals(element) || contains(root.getLeftChild(), element) ||
                 contains(root.getRightChild(), element);
@@ -103,12 +110,16 @@ public class BinaryTree<E extends Comparable<E>> implements BinaryTreeADT<E> {
     }
 
     private ArrayList<E> levelOrder(ArrayList<E> list, BinaryTreeNode<E> root) {
-        if(root == null) {
-            return list;
-        }
-        int height = height(root);
-        for(int i = 0; i < height; i++) {
-            atCurrentLevel(list, root, i);
+        Queue<BinaryTreeNode<E>> queue=new LinkedList<BinaryTreeNode<E>>();
+        queue.add(root);
+        while(!queue.isEmpty())
+        {
+            BinaryTreeNode<E> tempNode=queue.poll();
+            list.add(tempNode.getElement());
+            if(tempNode.getLeftChild()!=null)
+                queue.add(tempNode.getLeftChild());
+            if(tempNode.getRightChild()!=null)
+                queue.add(tempNode.getRightChild());
         }
         return list;
     }
@@ -125,18 +136,19 @@ public class BinaryTree<E extends Comparable<E>> implements BinaryTreeADT<E> {
 
     @Override
     public int height() {
-        if(root == null)
-            return 0;
-        return height(root);
+
+        return height(root,0);
     }
 
-    private int height(BinaryTreeNode<E> root) {
-        int leftHeight = height(root.getLeftChild());
-        int rightHeight = height(root.getRightChild());
+    private int height(BinaryTreeNode<E> root, int count) {
+        if(root == null)
+            return count - 1;
+        int leftHeight = height(root.getLeftChild(), count+1);
+        int rightHeight = height(root.getRightChild(), count+1) ;
 
         if(leftHeight > rightHeight)
-            return leftHeight + 1;
+            return leftHeight;
         else
-            return rightHeight + 1;
+            return rightHeight;
     }
 }

@@ -1,12 +1,19 @@
 package com.group2.bst.model;
 
+import java.util.Objects;
+
 public class BinaryTreeNode<E extends Comparable<E>> {
     private E element;
     private BinaryTreeNode<E> leftChild;
     private BinaryTreeNode<E> rightChild;
 
     public BinaryTreeNode() {
+    }
 
+    public BinaryTreeNode(E element, BinaryTreeNode<E> leftChild, BinaryTreeNode<E> rightChild) {
+        this.element = element;
+        this.leftChild = leftChild;
+        this.rightChild = rightChild;
     }
 
     public void setElement(E element) {
@@ -33,4 +40,12 @@ public class BinaryTreeNode<E extends Comparable<E>> {
         return rightChild;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BinaryTreeNode<?> that = (BinaryTreeNode<?>) o;
+        return Objects.equals(getElement(), that.getElement()) && Objects.equals(getLeftChild(), that.getLeftChild()) && Objects.equals(getRightChild(), that.getRightChild());
+    }
+    
 }
