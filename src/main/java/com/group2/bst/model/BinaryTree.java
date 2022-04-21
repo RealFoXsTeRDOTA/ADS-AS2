@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinaryTree<E extends Comparable<E>> implements BinaryTreeADT<E> {
+public class BinaryTree<E> implements BinaryTreeADT<E> {
 
     private BinaryTreeNode<E> root;
     private int size;

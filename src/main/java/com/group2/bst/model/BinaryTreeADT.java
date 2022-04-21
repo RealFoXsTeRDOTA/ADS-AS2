@@ -2,7 +2,7 @@ package com.group2.bst.model;
 
 import java.util.ArrayList;
 
-public interface BinaryTreeADT<E extends Comparable<E>> {
+public interface BinaryTreeADT<E> {
     BinaryTreeNode<E> getRoot();
     void setRoot(BinaryTreeNode<E> root);
     boolean isEmpty();

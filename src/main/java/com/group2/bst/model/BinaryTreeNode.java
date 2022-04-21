@@ -2,12 +2,15 @@ package com.group2.bst.model;
 
 import java.util.Objects;
 
-public class BinaryTreeNode<E extends Comparable<E>> {
+public class BinaryTreeNode<E> {
     private E element;
     private BinaryTreeNode<E> leftChild;
     private BinaryTreeNode<E> rightChild;
 
-    public BinaryTreeNode() {
+    public BinaryTreeNode(E element) {
+        this.element = element;
+        leftChild = null;
+        rightChild = null;
     }
 
     public BinaryTreeNode(E element, BinaryTreeNode<E> leftChild, BinaryTreeNode<E> rightChild) {
