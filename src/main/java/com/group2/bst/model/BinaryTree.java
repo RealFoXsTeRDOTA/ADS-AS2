@@ -9,6 +9,11 @@ public class BinaryTree<E> implements BinaryTreeADT<E> {
     private BinaryTreeNode<E> root;
     private int size;
 
+    public BinaryTree() {
+        root = null;
+        size = 0;
+    }
+
     public BinaryTree(BinaryTreeNode<E> root, int size) {
         this.root = root;
         this.size = size;
