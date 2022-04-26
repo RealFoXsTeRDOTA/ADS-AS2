@@ -1,6 +1,6 @@
 package com.group2.bst.model;
 
-import com.group2.bst.Helper;
+import com.group2.bst.util.Helper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BinaryTreeTest<E extends Comparable<E>> {
+class BinaryTreeTest {
     private Helper<Integer> helper;
     private BinaryTree<Integer> binaryTree;
     @BeforeEach

@@ -1,5 +1,7 @@
 package com.group2.bst.model;
 
+import java.util.List;
+
 public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> implements BinarySearchTreeADT<E> {
 
     public BinarySearchTree() {
@@ -157,6 +159,12 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> imp
     }
 
     @Override public void rebalance() {
+        List<E> elements = inOrder();
+        setRoot(new BinarySearchTreeNode<>(elements.get(elements.size() / 2)));
+        elements.remove(elements.get(elements.size() / 2));
 
+        for (int i = elements.size() - 1; i >= 0 ; i--) {
+            insert(elements.get(i));
+        }
     }
 }

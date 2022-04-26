@@ -1,4 +1,4 @@
-package com.group2.bst;
+package com.group2.bst.util;
 
 import com.group2.bst.model.BinaryTree;
 import com.group2.bst.model.BinaryTreeNode;

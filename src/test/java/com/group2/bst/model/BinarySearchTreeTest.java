@@ -138,9 +138,9 @@ class BinarySearchTreeTest {
         binarySearchTree.insert(1);
         binarySearchTree.rebalance();
         assertEquals(3, binarySearchTree.getRoot().getElement());
-        assertEquals(4, binarySearchTree.getRoot().getRightChild().getElement());
+        assertEquals(5, binarySearchTree.getRoot().getRightChild().getElement());
         assertEquals(2, binarySearchTree.getRoot().getLeftChild().getElement());
-        assertEquals(5, binarySearchTree.getRoot().getRightChild().getRightChild().getElement());
+        assertEquals(4, binarySearchTree.getRoot().getRightChild().getLeftChild().getElement());
         assertEquals(1, binarySearchTree.getRoot().getLeftChild().getLeftChild().getElement());
     }
 
@@ -152,10 +152,10 @@ class BinarySearchTreeTest {
         binarySearchTree.insert(2);
         binarySearchTree.rebalance();
         assertEquals(3, binarySearchTree.getRoot().getElement());
-        assertEquals(4, binarySearchTree.getRoot().getRightChild().getElement());
-        assertEquals(1, binarySearchTree.getRoot().getLeftChild().getElement());
-        assertEquals(5, binarySearchTree.getRoot().getRightChild().getRightChild().getElement());
-        assertEquals(2, binarySearchTree.getRoot().getLeftChild().getRightChild().getElement());
+        assertEquals(5, binarySearchTree.getRoot().getRightChild().getElement());
+        assertEquals(2, binarySearchTree.getRoot().getLeftChild().getElement());
+        assertEquals(4, binarySearchTree.getRoot().getRightChild().getLeftChild().getElement());
+        assertEquals(1, binarySearchTree.getRoot().getLeftChild().getLeftChild().getElement());
     }
 
     @Test void rebalanceRightRightTree() {
@@ -166,9 +166,9 @@ class BinarySearchTreeTest {
         binarySearchTree.insert(5);
         binarySearchTree.rebalance();
         assertEquals(3, binarySearchTree.getRoot().getElement());
-        assertEquals(4, binarySearchTree.getRoot().getRightChild().getElement());
+        assertEquals(5, binarySearchTree.getRoot().getRightChild().getElement());
         assertEquals(2, binarySearchTree.getRoot().getLeftChild().getElement());
-        assertEquals(5, binarySearchTree.getRoot().getRightChild().getRightChild().getElement());
+        assertEquals(4, binarySearchTree.getRoot().getRightChild().getLeftChild().getElement());
         assertEquals(1, binarySearchTree.getRoot().getLeftChild().getLeftChild().getElement());
     }
 
@@ -179,10 +179,10 @@ class BinarySearchTreeTest {
         binarySearchTree.insert(4);
         binarySearchTree.insert(3);
         binarySearchTree.rebalance();
-        assertEquals(4, binarySearchTree.getRoot().getElement());
+        assertEquals(3, binarySearchTree.getRoot().getElement());
         assertEquals(5, binarySearchTree.getRoot().getRightChild().getElement());
         assertEquals(2, binarySearchTree.getRoot().getLeftChild().getElement());
-        assertEquals(3, binarySearchTree.getRoot().getLeftChild().getRightChild().getElement());
+        assertEquals(4, binarySearchTree.getRoot().getRightChild().getLeftChild().getElement());
         assertEquals(1, binarySearchTree.getRoot().getLeftChild().getLeftChild().getElement());
     }
 }
